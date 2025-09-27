@@ -1,6 +1,6 @@
 import httpx
 from typing import Dict, List, Any, Optional
-from fastmcp import FastMCP
+from mcp.server.fastmcp import FastMCP
 
 # Create FastMCP instance
 mcp = FastMCP("Pokemon MCP Server")
@@ -310,3 +310,6 @@ async def get_pokemon_evolution_chain(chain_id: int) -> str:
         return f"Error: {str(e)}"
 
 # Note: FastMCP handles cleanup automatically
+# --- Entry point ---
+if __name__ == "__main__":
+    mcp.run(transport="stdio")
